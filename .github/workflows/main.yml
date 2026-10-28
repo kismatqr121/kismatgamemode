@@ -25,7 +25,10 @@ jobs:
         with:
           gradle-version: '9.2.1'
 
-      - name: Build Minecraft Mod
+      - name: Extract source ZIP
+        run: unzip -q kismatgamemode-source.zip -d .
+
+      - name: Build Fabric Mod
         run: gradle -p KismatFabricMod build
 
       - name: Upload JAR
@@ -33,3 +36,4 @@ jobs:
         with:
           name: KismatGameMode-JAR
           path: KismatFabricMod/build/libs/*.jar
+
